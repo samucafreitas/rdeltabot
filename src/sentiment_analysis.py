@@ -1,11 +1,14 @@
 import pandas as pd
 import numpy
+from pathlib import Path
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn import metrics
 from sklearn.model_selection import cross_val_predict
 
-dataset = pd.read_csv('../resources/imdb_reviews.csv', encoding = "ISO-8859-1")
+IMDB_REVIEWS_PATH = str(Path(__file__).parents[1]) + '/resources/imdb_reviews.csv'
+
+dataset = pd.read_csv(IMDB_REVIEWS_PATH, encoding = "ISO-8859-1")
 dataset.count()
 
 reviews = dataset['review'].values

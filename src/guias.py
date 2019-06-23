@@ -1,5 +1,5 @@
 # Um guia é uma função que guia nosso bot quando ele recebe algum comando ou msg
-import sentment_analysis
+import sentiment_analysis
 
 # Guia para quando recebemos o comando /start no privado
 def start(bot, update):
@@ -9,9 +9,9 @@ def start(bot, update):
 def help(bot, update):
     update.message.reply_text('Help!')
 
-def sentment(bot, update):
+def sentiment(bot, update):
     msg = update.message.text
-    prediction = sentment_analysis.predict(msg)
+    prediction = sentiment_analysis.predict(msg)
     update.message.reply_text(prediction)
 
 # Esse guia veio junto ao exemplo da interface para o Telegram Bot API
