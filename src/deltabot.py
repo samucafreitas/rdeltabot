@@ -4,6 +4,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from guias import * # Importa todos os nossos guias
 from db import init_db
 import logging
+import os
 
 # Habilita o log passando o formato do log
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -13,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 def main():
     # Informamos aqui nosso Token do bot
-    updater = Updater("244488543:AAF29xpPghNRLYVh1yujS08iW9dymRV5FlU")
+    updater = Updater(os.environ.get("BOT_TOKEN"))
 
     # Dispatcher para registrar os nossos guias
     dp = updater.dispatcher
