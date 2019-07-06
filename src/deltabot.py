@@ -19,7 +19,7 @@ def main():
     dp.add_handler(CommandHandler("help", help_bot))
     dp.add_handler(CommandHandler("sentiment", sentiment))
     dp.add_handler(CommandHandler("hoje", sofrer))
-    dp.add_handler(MessageHandler(Filters.text, lucianna))
+    dp.add_handler(MessageHandler(Filters.group, lucianna))
 
 
     dp.add_error_handler(error)
