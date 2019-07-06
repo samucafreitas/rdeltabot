@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from guias import *
 from db import init_db
@@ -19,9 +18,9 @@ def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help_bot))
     dp.add_handler(CommandHandler("sentiment", sentiment))
-
-    # TODO: hora de ir pra facul
     dp.add_handler(CommandHandler("hoje", sofrer))
+    dp.add_handler(MessageHandler(Filters.text, lucianna))
+
 
     dp.add_error_handler(error)
 

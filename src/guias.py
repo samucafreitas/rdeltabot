@@ -21,13 +21,16 @@ def sentiment(bot, update):
         prediction = sentiment_analysis.predict(user_msg)
         update.message.reply_html(prediction)
     else:
-        update.message.reply_html('[INFO] Favor escrever algo para analisar, <b>Trouxa!</b>')
+        update.message.reply_html('[INFO] Favor escrever algo para analisar, <b>TROUXA!</b>')
 
 def sofrer(bot, update):
     user_msg = update.message.text
 
     if user_msg.lower() == '/hoje':
-        msg = aulasdml.read()[0]
+        msg = "<b>Hoje não haverá aula, TROUXA!!!</b>"
+        aula = aulasdml.read()
+        if aula != None:
+            msg = aula[0]
         update.message.reply_html(msg)
     else:
         with open(CONFIG_PATH) as config:
@@ -39,4 +42,11 @@ def sofrer(bot, update):
                 aulasdml.create(user_msg)
                 update.message.reply_html('[INFO] <b>Tristeza adicionada com sucesso!</b>')
         else:
-            update.message.reply_html('[INFO] Você não é admin, <b>Trouxa!</b>')
+            update.message.reply_html('[INFO] Você não é admin, <b>TROUXA!</b>')
+
+def lucianna(bot, update):
+    user_msg = update.message.text
+    containsLu = re.compile(r'\b({0})\b'.format('lucianna'), flags=re.IGNORECASE).search(user_msg)
+    
+    if containsLu != None:
+        update.message.reply_html('[INFO] <i>Lucianna</i> acha que somos <b>TROUXAS!</b>')
